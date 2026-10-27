@@ -264,3 +264,156 @@ footer span:first-child{font-family:'Creepster',cursive;color:#d2c5cc;font-size:
     box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
     transform: scale(1.04);
 }
+.movie-poster {
+  overflow: hidden;
+}
+
+.movie-poster img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== PELÍCULAS: DISEÑO VERTICAL ===== */
+
+.movie-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    border-top: 1px solid var(--line);
+}
+
+.movie-row {
+    display: grid;
+    grid-template-columns: 35px 150px minmax(0, 1fr) 20px;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--line);
+    box-sizing: border-box;
+}
+
+.movie-number {
+    font-family: 'Creepster', cursive;
+    font-size: 1.8rem;
+    color: #e02a35;
+    text-align: center;
+}
+
+.movie-poster {
+    position: relative;
+    width: 150px;
+    height: 220px;
+    overflow: hidden;
+    border: 1px solid #71313c;
+    background-color: #160b11;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 15px rgba(160, 15, 32, 0.15);
+}
+
+.movie-poster img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-poster::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        0deg,
+        rgba(8, 6, 9, 0.35),
+        transparent 60%
+    );
+}
+
+.movie-info {
+    min-width: 0;
+    padding: 10px 0;
+}
+
+.movie-info h3 {
+    font-family: 'Creepster', cursive;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    color: #eee2e4;
+    margin: 10px 0;
+}
+
+.movie-info p:not(.card-tag) {
+    color: #b6aab3;
+    font-size: 0.9rem;
+    line-height: 1.9;
+    margin: 12px 0;
+}
+
+.movie-info .card-tag {
+    color: #e02a35;
+    letter-spacing: 2px;
+    font-size: 0.7rem;
+}
+
+.movie-info .mood {
+    display: inline-block;
+    margin-top: 8px;
+    color: #e05a68;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.movie-mark {
+    color: #8b2434;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+
+.movie-row:hover .movie-poster {
+    border-color: #e02a35;
+    box-shadow: 0 0 22px rgba(224, 42, 53, 0.25);
+}
+
+.movie-row:hover .movie-number {
+    color: #ff5260;
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+
+@media (max-width: 600px) {
+    .movie-row {
+        grid-template-columns: 25px 100px minmax(0, 1fr);
+        gap: 12px;
+        padding: 20px 0;
+    }
+
+    .movie-poster {
+        width: 100px;
+        height: 150px;
+    }
+
+    .movie-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .movie-info p:not(.card-tag) {
+        font-size: 0.75rem;
+        line-height: 1.6;
+    }
+
+    .movie-info .card-tag,
+    .movie-info .mood {
+        font-size: 0.65rem;
+    }
+
+    .movie-mark {
+        display: none;
+    }
+}
+
